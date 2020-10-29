@@ -154,3 +154,4 @@ COPY 20.0/apache/config/* /usr/src/nextcloud/config/
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["apache2-foreground"]
+
