@@ -114,6 +114,12 @@ RUN a2enmod headers rewrite remoteip ;\
     } > /etc/apache2/conf-available/remoteip.conf;\
     a2enconf remoteip
 
+RUN set -ex; \
+    sed -i "s/Listen 80/Listen 8080/" /etc/apache2/ports.conf; \
+    sed -i "s/VirtualHost *:80/VirtualHost *:8080/" /etc/apache2/sites-available/*.conf
+
+EXPOSE 8080
+
 ENV NEXTCLOUD_VERSION 20.0.1
 
 RUN set -ex; \
